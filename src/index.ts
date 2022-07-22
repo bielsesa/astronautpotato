@@ -1,5 +1,6 @@
-import { Application, Container, Sprite } from 'pixi.js'
-import { GlitchFilter } from 'pixi-filters'
+import { Application } from 'pixi.js';
+import { Scene } from './scenes/Scene';
+// import { GlitchFilter } from 'pixi-filters'
 
 const app = new Application({
 	view: document.getElementById("pixi-canvas") as HTMLCanvasElement,
@@ -10,31 +11,35 @@ const app = new Application({
 	height: 480
 });
 
-const conty: Container = new Container();
+const scene: Scene = new Scene(app.screen.width, app.screen.height);
 
-conty.x = app.screen.width / 2;
-conty.y = app.screen.height / 2;
-app.stage.addChild(conty);
+app.stage.addChild(scene);
 
-const clampy: Sprite = Sprite.from("clampy.png");
+// const conty: Container = new Container();
 
-clampy.anchor.set(0.5);
+// conty.x = app.screen.width / 2;
+// conty.y = app.screen.height / 2;
+// app.stage.addChild(conty);
 
-clampy.x = 0;
-clampy.y = 0;
+// const clampy: Sprite = Sprite.from("clampy.png");
 
-conty.rotation = Math.PI * 0.5;
+// clampy.anchor.set(0.5);
 
-const glitchFilter: GlitchFilter = new GlitchFilter({
-	seed: 0.3,
-	slices: 10,
-	offset: 10,
-	red: [2, 2],
-	blue: [10, -4],
-	green: [-10, 4]
-});
+// clampy.x = 0;
+// clampy.y = 0;
+
+// conty.rotation = Math.PI * 0.5;
+
+// const glitchFilter: GlitchFilter = new GlitchFilter({
+// 	seed: 0.3,
+// 	slices: 10,
+// 	offset: 10,
+// 	red: [2, 2],
+// 	blue: [10, -4],
+// 	green: [-10, 4]
+// });
 
 
-clampy.filters = [glitchFilter];
+// clampy.filters = [glitchFilter];
 
-conty.addChild(clampy);
+// conty.addChild(clampy);
